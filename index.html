@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Der Kant sich verpissen</title>
+    <style>
+        body{
+            background-color: #648399;
+            border: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+        #kantgif{
+            width: 250px;
+            position: absolute;
+            display: none;
+        }
+        #kantpng{
+            width: 250px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <img id="kantgif" src="kant.gif">
+    <img id="kantpng" src="kant.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        function resize(){
+            $(document).ready(function () {
+                var height = $(window).height();
+                $('#kantgif, #kantpng').css('top', height - 327);
+            });
+        }
+        $(document).ready(function () {
+            var width = $(window).width();
+            $(window).resize(function(){
+                resize();
+            });
+            resize();
+            $(this).click(function(){
+                $('#kantpng').hide();
+                $('#kantgif').show().animate({left: width + 370}, 15000)
+            });
+        });
+    </script>
+</body>
+</html>
